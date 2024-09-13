@@ -73,6 +73,7 @@ internal class ReaderTextToSpeech(
     private val setPreferredVoicePitch: (voiceId: Float) -> Unit,
     private val getPreferredVoiceSpeed: () -> Float,
     private val setPreferredVoiceSpeed: (voiceId: Float) -> Unit,
+    preferredEngine: String
 ) {
     private val halfBuffer = 2
     private var updateJob: Job? = null
@@ -86,7 +87,8 @@ internal class ReaderTextToSpeech(
                 text = ""
             ),
             playState = Utterance.PlayState.FINISHED
-        )
+        ),
+        preferredEngine
     )
 
     val scrolledToTheTop = MutableSharedFlow<Unit>()

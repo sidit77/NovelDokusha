@@ -140,6 +140,11 @@ class AppPreferences @Inject constructor(
             override var value by SharedPreference_String(name, preferences, "")
         }
 
+    val GLOBAL_APP_PREFERRED_TTS_ENGINE =
+        object : Preference<String>("GLOBAL_APP_PREFERRED_TTS_ENGINE") {
+            override var value by SharedPreference_String(name, preferences, "")
+        }
+
     val GLOBAL_APP_UPDATER_CHECKER_ENABLED =
         object : Preference<Boolean>("GLOBAL_APP_UPDATER_CHECKER_ENABLED") {
             override var value by SharedPreference_Boolean(name, preferences, true)

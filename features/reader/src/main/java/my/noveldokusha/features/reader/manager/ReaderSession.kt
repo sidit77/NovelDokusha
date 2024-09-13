@@ -134,6 +134,7 @@ internal class ReaderSession(
         setPreferredVoiceSpeed = { appPreferences.READER_TEXT_TO_SPEECH_VOICE_SPEED.value = it },
         getPreferredVoicePitch = { appPreferences.READER_TEXT_TO_SPEECH_VOICE_PITCH.value },
         setPreferredVoicePitch = { appPreferences.READER_TEXT_TO_SPEECH_VOICE_PITCH.value = it },
+        preferredEngine = appPreferences.GLOBAL_APP_PREFERRED_TTS_ENGINE.value
     )
 
     fun init() {

@@ -32,6 +32,7 @@ import my.noveldokusha.settings.sections.SettingsBackup
 import my.noveldokusha.settings.sections.SettingsData
 import my.noveldokusha.settings.sections.SettingsTheme
 import my.noveldokusha.settings.sections.SettingsTranslationModels
+import my.noveldokusha.settings.sections.SettingsTtsEngine
 
 @Composable
 internal fun SettingsScreenBody(
@@ -77,6 +78,8 @@ internal fun SettingsScreenBody(
             )
         }
         HorizontalDivider()
+        SettingsTtsEngine(state = state.ttsEngineSettings)
+        HorizontalDivider()
         LibraryAutoUpdate(state = state.libraryAutoUpdate)
         HorizontalDivider()
         AppUpdates(
@@ -114,6 +117,7 @@ private fun Preview() {
                     imageFolderSize = remember { mutableStateOf("10 MB") },
                     isTranslationSettingsVisible = remember { mutableStateOf(true) },
                     translationModelsStates = remember { mutableStateListOf() },
+                    ttsEngineSettings = remember { mutableStateOf("") },
                     updateAppSetting = SettingsScreenState.UpdateApp(
                         currentAppVersion = "1.0.0",
                         appUpdateCheckerEnabled = remember { mutableStateOf(true) },

@@ -14,6 +14,7 @@ data class SettingsScreenState(
     val currentTheme: State<Themes>,
     val isTranslationSettingsVisible: State<Boolean>,
     val translationModelsStates: SnapshotStateList<TranslationModelState>,
+    val ttsEngineSettings: MutableState<String>,
     val updateAppSetting: UpdateApp,
     val libraryAutoUpdate: LibraryAutoUpdate,
 ) {
@@ -28,4 +29,5 @@ data class SettingsScreenState(
         val autoUpdateEnabled: MutableState<Boolean>,
         val autoUpdateIntervalHours: MutableState<Int>,
     )
+
 }

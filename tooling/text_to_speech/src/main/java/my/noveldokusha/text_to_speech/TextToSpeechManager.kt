@@ -34,6 +34,7 @@ data class VoiceData(
 class TextToSpeechManager<T : Utterance<T>>(
     context: Context,
     initialItemState: T,
+    engine: String
 ) {
     private val scope = CoroutineScope(Dispatchers.Default)
     private val _queueList = mutableMapOf<String, T>()
@@ -51,7 +52,7 @@ class TextToSpeechManager<T : Utterance<T>>(
         started = SharingStarted.WhileSubscribed()
     )
 
-    val service = TextToSpeech(context) {
+    val service = TextToSpeech(context, {
         when (it) {
             TextToSpeech.SUCCESS -> {
                 listenToUtterances()
@@ -62,7 +63,7 @@ class TextToSpeechManager<T : Utterance<T>>(
             TextToSpeech.ERROR -> Unit
             else -> Unit
         }
-    }
+    }, engine)
 
     val currentActiveItemState = mutableStateOf(initialItemState)
 

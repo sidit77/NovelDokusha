@@ -50,6 +50,9 @@ internal class SettingsViewModel @Inject constructor(
         currentTheme = derivedStateOf { themeId.toTheme },
         isTranslationSettingsVisible = mutableStateOf(translationManager.available),
         translationModelsStates = translationManager.models,
+        ttsEngineSettings = appPreferences.GLOBAL_APP_PREFERRED_TTS_ENGINE.state(
+            viewModelScope
+        ),
         updateAppSetting = SettingsScreenState.UpdateApp(
             currentAppVersion = appRemoteRepository.getCurrentAppVersion().toString(),
             showNewVersionDialog = mutableStateOf(null),
